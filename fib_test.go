@@ -33,7 +33,7 @@ func TestFib(t *testing.T) {
         },
         {
             Input: 50,
-            Expected: 21,
+            Expected: 12586269025,
         },
     }
 
