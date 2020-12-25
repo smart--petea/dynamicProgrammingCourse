@@ -22,23 +22,23 @@ func TestIndex(t *testing.T) {
             Expected: 1,
         },
         {
-            InputM: 2,
-            InputN: 1,
+            InputM: 1,
+            InputN: 3,
             Expected: 2,
         },
         {
             InputM: 2,
-            InputN: 2,
+            InputN: 1,
             Expected: 3,
         },
         {
-            InputM: 3,
-            InputN: 1,
+            InputM: 2,
+            InputN: 2,
             Expected: 4,
         },
         {
-            InputM: 3,
-            InputN: 2,
+            InputM: 2,
+            InputN: 3,
             Expected: 5,
         },
     }

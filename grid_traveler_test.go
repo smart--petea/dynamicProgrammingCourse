@@ -26,13 +26,11 @@ func TestGridTraveler(t *testing.T) {
             InputN: 3,
             Expected: 6,
         },
-        /*
         {
             InputM: 18,
             InputN: 18,
-            Expected: 6,
+            Expected: 2333606220,
         },
-        */
     }
 
     for _, testEntry := range testEntries {

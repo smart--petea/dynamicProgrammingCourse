@@ -7,7 +7,7 @@ type Arr2D struct {
 }
 
 func (a *Arr2D) Index(i,j int) int {
-    return (i - 1) * a.M + j - 1
+    return (i - 1) * a.N + j - 1
 }
 
 func (a *Arr2D) Get(i,j int) int {
