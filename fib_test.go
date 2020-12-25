@@ -4,11 +4,6 @@ import (
     "testing"
 )
 
-type TestEntry struct {
-    Input int
-    Expected int
-}
-
 func TestFib(t *testing.T) {
     testEntries := []TestEntry{
         {

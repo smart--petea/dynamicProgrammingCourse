@@ -4,12 +4,6 @@ import (
     "testing"
 )
 
-type TestEntryMN struct {
-    InputM int
-    InputN int
-    Expected int
-}
-
 func TestGridTraveler(t *testing.T) {
     testEntries := []TestEntryMN{
         {
