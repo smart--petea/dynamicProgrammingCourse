@@ -2,10 +2,14 @@ package fcc
 
 import (
 	"sort"
-	"fmt"
 )
 
 func BestSum(targetSum int, candidates []int) []int {
+	memo := make(map[int][]int)
+	return bestSum(targetSum, candidates, memo)
+}
+
+func bestSum(targetSum int, candidates []int, memo map[int][]int) []int {
 	if targetSum < 0 {
 		return nil
 	}
@@ -14,10 +18,14 @@ func BestSum(targetSum int, candidates []int) []int {
 		return []int{}
 	}
 
+	if val, ok := memo[targetSum]; ok {
+		return val
+	}
+
 	results := make(map[int][]int)
 	lenResults := []int{}
 	for _, candidate := range candidates {
-		result := BestSum(targetSum - candidate, candidates)
+		result := bestSum(targetSum - candidate, candidates, memo)
 
 		if result == nil {
 			continue
@@ -30,10 +38,12 @@ func BestSum(targetSum int, candidates []int) []int {
 	}
 
 	if len(results) == 0 {
+		memo[targetSum] = nil
 		return nil
 	}
 
 	sort.Ints(lenResults)
 
-	return results[lenResults[0]] 
+	memo[targetSum] = results[lenResults[0]]
+	return memo[targetSum]
 }

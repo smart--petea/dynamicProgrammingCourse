@@ -11,9 +11,24 @@ func TestBestSum(t *testing.T) {
 		expectedLen int
 	}{
 		{
+			targetSum: 7 ,
+			candidates: []int{5, 3, 4, 7},
+			expectedLen: 1,
+		},
+		{
 			targetSum: 8 ,
 			candidates: []int{2, 3, 5},
 			expectedLen: 2,
+		},
+		{
+			targetSum: 8 ,
+			candidates: []int{1, 4, 5},
+			expectedLen: 2,
+		},
+		{
+			targetSum: 100 ,
+			candidates: []int{1, 2, 5, 25},
+			expectedLen: 4,
 		},
 	}
 
