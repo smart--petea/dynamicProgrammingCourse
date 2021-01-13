@@ -1,9 +1,5 @@
 package fcc
 
-import (
-	"sort"
-)
-
 func BestSum(targetSum int, candidates []int) []int {
 	memo := make(map[int][]int)
 	return bestSum(targetSum, candidates, memo)
@@ -22,8 +18,7 @@ func bestSum(targetSum int, candidates []int, memo map[int][]int) []int {
 		return val
 	}
 
-	results := make(map[int][]int)
-	lenResults := []int{}
+	var shortestCombination []int
 	for _, candidate := range candidates {
 		result := bestSum(targetSum - candidate, candidates, memo)
 
@@ -32,18 +27,11 @@ func bestSum(targetSum int, candidates []int, memo map[int][]int) []int {
 		}
 
 		result = append(result, targetSum)
-		lenResult := len(result)
-		results[lenResult] = result
-		lenResults = append(lenResults, lenResult)
+		if shortestCombination == nil || len(result) < len(shortestCombination) {
+			shortestCombination = result
+		}
 	}
 
-	if len(results) == 0 {
-		memo[targetSum] = nil
-		return nil
-	}
-
-	sort.Ints(lenResults)
-
-	memo[targetSum] = results[lenResults[0]]
-	return memo[targetSum]
+	memo[targetSum] = shortestCombination
+	return shortestCombination
 }
