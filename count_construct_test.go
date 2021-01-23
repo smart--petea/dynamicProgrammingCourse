@@ -20,6 +20,21 @@ func TestCountConstruct(t *testing.T) {
 			target:        "purple",
 			expectedCount: 2,
 		},
+		{
+			wordsBank:     []string{"bo", "rd", "ate", "t", "ska", "sk", "boar"},
+			target:        "skateboard",
+			expectedCount: 0,
+		},
+		{
+			wordsBank:     []string{"a", "p", "ent", "enter", "ot", "o", "t"},
+			target:        "enterapotentpot",
+			expectedCount: 4,
+		},
+		{
+			wordsBank:     []string{"e", "ee", "eee", "eeee", "eeeee", "eeeeee"},
+			target:        "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef",
+			expectedCount: 0,
+		},
 	}
 
 	for _, test := range tests {
